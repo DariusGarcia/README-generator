@@ -1,6 +1,6 @@
 # README Generator
 
-![Video walkthrough of the web app.](https://media.giphy.com/media/6kooTa3ZyeJacTkVyk/giphy.gif)
+![Video walkthrough of the web app.]()
 ![Video walkthrough of the web app.](./Develop/assets/images/README-generator.gif)
 
 ## Description
