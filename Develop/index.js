@@ -38,7 +38,6 @@ ${fetchLicense(data.license.toString())}
 
 ${data.description}
 
-
 ## Usage <a name="usage"></a>
 
 ${data.usage}
@@ -63,8 +62,6 @@ Have any questions? Feel free to email:
 Email: ${data.email}
 
 `
-
-// TODO: Create an array of questions for user input
 const questions = [
 	{
 		type: 'input',
@@ -114,7 +111,6 @@ const questions = [
 	},
 ]
 
-// TODO: Create a function to write README file
 function writeToFile(data) {
 	const filename = 'README.md'
 	fs.writeFile(filename, data, (err) =>
@@ -122,7 +118,6 @@ function writeToFile(data) {
 	)
 }
 
-// TODO: Create a function to initialize app
 function init() {
 	inquirer.prompt(questions).then((data) => {
 		console.log(data.license.toString())
@@ -131,7 +126,4 @@ function init() {
 	})
 }
 
-// Function call to initialize app
 init()
-
-// JSON.stringify(data, null, '\t')
