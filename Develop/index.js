@@ -22,22 +22,45 @@ const fetchLicense = (license) => {
 const generateMarkdown = (data) =>
 	`# ${data.title}
 
-# License 
+## License 
 
 ${fetchLicense(data.license.toString())}
-    
 
-## Description
+## Table of contents
+1. [Description](#description)
+2. [Usage](#usage)
+3. [Contributing](#contributing)
+4. [Installation](#installation)
+5. [Tests](#tests)
+6. [Questions](#questions)
+
+## Description <a name="description"></a>
 
 ${data.description}
 
-## Usage
+
+## Usage <a name="usage"></a>
 
 ${data.usage}
 
-## Installation
+## Contributing <a name="contributing"></a>
+
+${data.contributing}
+
+## Installation <a name="installation"></a>
 
 ${data.installation}
+
+## Tests <a name="tests"></a>
+
+${data.test}
+
+## Questions <a name="tests"></a>
+Have any questions? Feel free to email: 
+
+[${data.github}](https://github.com/${data.github})
+
+Email: ${data.email}
 
 `
 
@@ -68,6 +91,26 @@ const questions = [
 		type: 'input',
 		message: 'Enter the installation method:',
 		name: 'installation',
+	},
+	{
+		type: 'input',
+		message: 'Enter any collaborators if there were any:',
+		name: 'contributing',
+	},
+	{
+		type: 'input',
+		message: 'Enter any tests:',
+		name: 'tests',
+	},
+	{
+		type: 'input',
+		message: 'Enter GitHub username:',
+		name: 'github',
+	},
+	{
+		type: 'input',
+		message: 'Enter email:',
+		name: 'email',
 	},
 ]
 
