@@ -1,8 +1,7 @@
-// TODO: Include packages needed for this application
 const inquirer = require('inquirer')
 const fs = require('fs')
 
-const fetchLicense = (license) => {
+const fetchLicenseBadge = (license) => {
 	switch (license) {
 		case 'MIT':
 			return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
@@ -19,12 +18,33 @@ const fetchLicense = (license) => {
 	}
 }
 
+const fetchLicenseName = (license) => {
+	switch (license) {
+		case 'MIT':
+			return `https://opensource.org/licenses/MIT`
+		case 'GNU':
+			return `https://www.gnu.org/licenses/gpl-3.0`
+		case 'Apache':
+			return `https://opensource.org/licenses/Apache-2.0`
+		case 'ISC':
+			return `https://opensource.org/licenses/ISC`
+		case 'Mozilla':
+			return `https://opensource.org/licenses/MPL-2.0`
+		default:
+			'No license provided.'
+	}
+}
+
 const generateMarkdown = (data) =>
-	`# ${data.title}
+	`${fetchLicenseBadge(data.license.toString())}
+
+# ${data.title}
 
 ## License 
 
-${fetchLicense(data.license.toString())}
+Here is the license that this project is covered under: ${fetchLicenseName(
+		data.license.toString()
+	)}
 
 ## Table of contents
 1. [Description](#description)
@@ -52,12 +72,12 @@ ${data.installation}
 
 ## Tests <a name="tests"></a>
 
-${data.test}
+${data.tests}
 
 ## Questions <a name="tests"></a>
-Have any questions? Feel free to email: 
+Have any questions? Feel free to contact me via GitHub or email. 
 
-[${data.github}](https://github.com/${data.github})
+[Link to GitHub account](https://github.com/${data.github})
 
 Email: ${data.email}
 
